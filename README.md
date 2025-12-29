@@ -1,5 +1,3 @@
-You got it! Here is that clean, professional README.md content again. You can copy this and paste it into your README.md file in the root of your project.
-
 🚀 Real-Time Kanban Board
 A professional-grade, full-stack Kanban board built with Next.js, Tailwind CSS, and Supabase. This project features real-time synchronization across multiple devices, a custom-built dropdown system, and a high-end dark mode UI with dynamic glows.
 
