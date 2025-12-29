@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+You got it! Here is that clean, professional README.md content again. You can copy this and paste it into your README.md file in the root of your project.
 
-## Getting Started
+🚀 Real-Time Kanban Board
+A professional-grade, full-stack Kanban board built with Next.js, Tailwind CSS, and Supabase. This project features real-time synchronization across multiple devices, a custom-built dropdown system, and a high-end dark mode UI with dynamic glows.
 
-First, run the development server:
+✨ Key Features
+Real-Time Sync: Powered by Supabase WebSockets. Changes made on mobile reflect instantly on desktop.
 
-```bash
+Persistent Storage: PostgreSQL database integration ensures your tickets are saved permanently.
+
+Custom UI Engine:
+
+Neon Glows: Dynamic shadows and border effects based on ticket tags (Bug, Story, Task, etc.).
+
+Defensive UI: Custom-built dropdowns with global click-to-close logic using React useRef.
+
+Smooth Animations: Hover scaling and 3D translation effects for a premium feel.
+
+Fully Type-Safe: Built with TypeScript for reliable development.
+
+🛠️ Tech Stack
+Framework: Next.js (App Router)
+
+Styling: Tailwind CSS
+
+Database/Realtime: Supabase
+
+Language: TypeScript
+
+🚀 Getting Started
+1. Clone and Install
+Bash
+
+git clone https://github.com/Purple-Pirate/ticketmanager.git
+cd ticket-manager
+npm install
+2. Environment Variables
+Create a .env.local file in the root directory and add your Supabase credentials:
+
+Code snippet
+
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+3. Database Schema
+Run the following SQL in your Supabase SQL Editor:
+
+SQL
+
+create table tickets (
+  id bigint primary key generated always as identity,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  text text not null,
+  tag text not null,
+  column_id text not null
+);
+
+-- Enable Realtime for the tickets table
+alter publish realtime add table tickets;
+4. Run Locally
+Bash
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🎨 Design System
+Primary Background: Pure Black (#000000)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Card Background: Slate-700 (50% Opacity)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tag Colors:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Bug: Red Glow
 
-## Learn More
+Story: Indigo Glow
 
-To learn more about Next.js, take a look at the following resources:
+Spike: Purple Glow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Task: Blue Glow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Roadmap
+[ ] Drag and Drop implementation (dnd-kit).
 
-## Deploy on Vercel
+[ ] User authentication for private boards.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[ ] Ticket filtering and search bar.
